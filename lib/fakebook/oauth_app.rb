@@ -8,12 +8,11 @@ module Fakebook
     get '/facebook' do
       @origin = params['origin']
       @users  = Fakebook::User.by_provider :facebook
-      # redirect "http://localhost:3000/auth/facebook/callback?origin=#{ CGI.escape params['origin'] }&fakebook_id=john_doe"
       erb :facebook
     end
 
     get '/user/:id' do
-      redirect 'http://localhost:3000'
+      redirect "http://#{Fakebook.app_host}"
     end
 
     helpers do
