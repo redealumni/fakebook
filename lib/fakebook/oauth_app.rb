@@ -12,12 +12,12 @@ module Fakebook
     end
 
     get '/user/:id' do
-      redirect "http://#{Fakebook.app_host}"
+      redirect "/"
     end
 
     helpers do
       def sign_in_url(name)
-        "#{Fakebook.app_host}/auth/facebook/callback?origin=#{ CGI.escape @origin }&fakebook_id=#{ CGI.escape name.to_s }"
+        "/auth/facebook/callback?origin=#{ CGI.escape @origin }&fakebook_id=#{ CGI.escape name.to_s }"
       end
     end
   end
